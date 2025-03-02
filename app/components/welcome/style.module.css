@@ -23,7 +23,7 @@
 
 .logo {
   width: 48px;
-  height: 20px;
-  background: url(./icons/logo.png) center center no-repeat;
+  height: 40px;
+  background: url(./icons/cs_logo2.png) center center no-repeat;
   background-size: contain;
 }
