@@ -16,6 +16,24 @@ const nextConfig = {
     // https://nextjs.org/docs/api-reference/next.config.js/ignoring-typescript-errors
     ignoreBuildErrors: true,
   },
+  // 启用压缩
+  compress: true,
+  
+  // 优化构建输出
+  webpack: (config, { isServer }) => {
+    // 仅在客户端构建时应用
+    if (!isServer) {
+      // 启用代码分割
+      config.optimization.splitChunks = {
+        chunks: 'all',
+        maxInitialRequests: 25,
+        minSize: 20000,
+        maxSize: 20 * 1024 * 1024, // 设置为小于25MB
+      };
+    }
+    
+    return config;
+  },
 }
 
 module.exports = nextConfig
